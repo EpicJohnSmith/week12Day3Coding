@@ -42,7 +42,7 @@ public class ArrayList<T extends Comparable<T>>
 
     public void prepend(T value)
     {
-        ensureCapacity();
+        ensureCapacity(); // Needed some help here, not exactly sure what this was about. AI documentation
         for (int i = size; i > 0; i--)
         {
             data[i] = data[i - 1];
@@ -54,7 +54,7 @@ public class ArrayList<T extends Comparable<T>>
     public void insertAt(int index, T value)
     {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Index: " + index);
+            throw new IndexOutOfBoundsException("Index: " + index); // IndexOutOfBounds...I think this is due to whether the array will have a issue 
         }
 
         ensureCapacity();
@@ -106,7 +106,7 @@ public class ArrayList<T extends Comparable<T>>
             for (int j = 0; j < size - i - 1; j++)
             {
 
-                int comparison = data[j].compareTo(data[j + 1]);
+                int comparison = data[j].compareTo(data[j + 1]); // Needed some help with AI here
 
                 if ((ascending && comparison > 0) ||
                     (!ascending && comparison < 0))
@@ -122,13 +122,13 @@ public class ArrayList<T extends Comparable<T>>
 
     public String toString()
     {
-        return Arrays.toString(Arrays.copyOf(data, size));
+        return Arrays.toString(Arrays.copyOf(data, size)); // Needed to look up the right documentation for this
     }
 
     public static void main(String[] args)
     {
 
-        ArrayList<Integer> list = new ArrayList<>(5);
+        ArrayList<Integer> list = new ArrayList<>(5); // Not really sure what this meant, but it makes it work!
 
         list.append(10);
         list.append(3);
