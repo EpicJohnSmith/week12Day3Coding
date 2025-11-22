@@ -8,7 +8,7 @@ public class ArrayList<T extends Comparable<T>> {
     private int size;
 
     @SuppressWarnings("unchecked")
-    public MyArrayList(int capacity) {
+    public ArrayList(int capacity) {
         data = (T[]) new Comparable[capacity];
         size = 0;
     }
@@ -27,18 +27,12 @@ public class ArrayList<T extends Comparable<T>> {
         }
     }
 
-    // ----------------------
-    // 1. APPEND
-    // ----------------------
     public void append(T value) {
         ensureCapacity();
         data[size] = value;
         size++;
     }
 
-    // ----------------------
-    // 2. PREPEND
-    // ----------------------
     public void prepend(T value) {
         ensureCapacity();
         // Shift everything right by 1
@@ -49,9 +43,6 @@ public class ArrayList<T extends Comparable<T>> {
         size++;
     }
 
-    // ----------------------
-    // 3. INSERT AT INDEX
-    // ----------------------
     public void insertAt(int index, T value) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index: " + index);
@@ -68,9 +59,6 @@ public class ArrayList<T extends Comparable<T>> {
         size++;
     }
 
-    // ----------------------
-    // 4. REMOVE AT INDEX
-    // ----------------------
     public T removeAt(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index);
@@ -88,10 +76,6 @@ public class ArrayList<T extends Comparable<T>> {
         return removed;
     }
 
-    // ----------------------
-    // 5. SEARCH
-    // Return index of element or -1 if not found
-    // ----------------------
     public int search(T value) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(value)) {
@@ -101,10 +85,6 @@ public class ArrayList<T extends Comparable<T>> {
         return -1;
     }
 
-    // ----------------------
-    // 6. SORT
-    // Bubble sort for simplicity
-    // ----------------------
     public void sort(boolean ascending) {
         for (int i = 0; i < size - 1; i++) {
             for (int j = 0; j < size - i - 1; j++) {
